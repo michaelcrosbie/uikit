@@ -3,13 +3,19 @@
 
     <head>
         <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Frontpage layout example - UIkit documentation</title>
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
-        <link rel="stylesheet" href="css/uikit.docs.min.css">
-        <script src="../vendor/jquery.js"></script>
-        <script src="js/uikit.min.js"></script>
+        <title>{if segment_1 == "stores"}Stores – {if:elseif segment_1}{exp:channel:entries}{if segment_2 == "read"}{title} - {channel} - {if:else}{title} – {/if}{/exp:channel:entries}{/if}Area 51 Store</title>
+	    <base href="{site_url}">
+		<meta name='keywords' content='{meta_keywords}' />
+	    <meta name='description' content='{meta_description}' />
+	    <link rel='canonical' href='{canonical_url}' />
+	    <meta property="og:url" content="{canonical_url}" />
+	    <meta property="og:title" content="{entry_title}" />
+	
+        <link rel="stylesheet" href="assets/css/uikit.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="assets/js/uikit.min.js"></script>
     </head>
 
     <body>
