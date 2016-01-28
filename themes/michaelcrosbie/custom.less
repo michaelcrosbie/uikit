@@ -274,33 +274,98 @@ html {
       background: #fff;
     }  
     .grid-item-wrapper {
-        display:none;
+        opacity:0;
         padding-top:50px;
         padding-bottom:50px;
         text-align:center;
-        a {
-             border:8px solid #fff; 
-          -webkit-transition : border 500ms ease-out;
-          -moz-transition : border 500ms ease-out;
-          -o-transition : border 500ms ease-out;
-          transition : border 500ms ease-out;
+        -webkit-transition: -webkit-transform 0.5s ease, opacity 0.6s ease;
+        transition: transform 0.5s ease, opacity 0.6s ease;
+        -webkit-transform: translate3d(0,5%,0);
+        transform: translate3d(0,5%,0);
+	    -webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+        &.show {
+            opacity:1;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
         }
-        .uk-overlay:hover {
-             .uk-overlay-panel {
-                 background:#fff;
-                color: #292a86;
-                text-align: left;
-                 div {
-                    width:50%;
-                     h2 {
-                         text-decoration:underline;
+        .grid-item {
+            &.small {
+                width:50%;
+                margin:0 auto;
+            }
+            &.medium {
+                width:75%;
+                margin:0 auto;
+            }
+            &.large {
+                width:90%;
+                margin:0 auto;
+            }
+            &.full {
+                width:100%;
+                margin:0 auto;
+            }
+            a {
+              border:8px solid #fff; 
+              -webkit-transition : border 500ms ease;
+              -moz-transition : border 500ms ease;
+              -o-transition : border 500ms ease;
+              transition : border 500ms ease;
+            }
+            .uk-overlay {
+                .uk-overlay-panel {
+                    opacity:0;
+                    -webkit-transition: opacity 0.6s ease-out;
+                    transition: opacity 0.6s ease-out;
+                    -webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+                    text-align:left;
+                    color:@global-color;
+                    div {
+                        width:50%;
+                         opacity:0;  
+                        -webkit-transition: -webkit-transform 0.5s ease-in, opacity 0.6s ease-in, transform 0.1s ease-out, opacity 0.1s ease-out;
+                        transition: transform 0.5s ease-in, opacity 0.6s ease-in, transform 0.1s ease-out, opacity 0.1s ease-out;
+                        -webkit-transform: translate3d(0,-5%,0);
+                        transform: translate3d(0,-5%,0);
+                        -webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+                        
+                    }
+                    .icon-arrow {
+                            display:block;
+                            position:absolute;
+                            right:20px;
+                            bottom:20px;
+                            width:12%;
+                            fill: @global-color;
+                            display: block;
+                        }
+                    
+                }
+
+            }
+            
+            .uk-overlay:hover, .uk-overlay.hover {
+                 .uk-overlay-panel {
+                     opacity:1;
+                     background:#fff;
+                    color: #292a86;
+                    text-align: left;
+                     div {
+                         opacity:1;
+                        -webkit-transform: translate3d(0,0,0);
+                        transform: translate3d(0,0,0);
+
+                         h2 {
+                             text-decoration:underline;
+                         }
                      }
                  }
-             }
-            a {
-                border:8px solid @global-color;
+                a {
+                    border:8px solid @global-color;
+                }
             }
         }
+        
     }
     
 }
@@ -312,6 +377,8 @@ article {
         z-index: 3000;
         min-width: 100%;
         top: 0;
+        box-sizing:border-box;  
+        margin-left:-20px;
         h1 {
             text-align: center;
             font-size: 110px;
@@ -324,6 +391,10 @@ article {
     }
     .hero_video {
          height:80vh;
+        margin-top:20vh;
+    }
+    .story_hero {
+        height:80vh;
         margin-top:20vh;
     }
     h1 {
@@ -367,13 +438,15 @@ article {
 
 
 // About
-.about {
+.about, .contact {
     padding-top:50px;
     padding-bottom:50px;
     background:@global-color;
     color:#fff;
     z-index:3001;
     position:relative;
+    min-height: calc(~"100vh - 40px");
+    box-sizing:border-box;
     h2, h3, h4, a {
          color:#fff;   
         a:hover {

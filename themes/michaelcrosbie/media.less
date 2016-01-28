@@ -10,6 +10,107 @@
     .hero_video {
          height:60vh;   
     }
+    
+    h2 {
+         font-size:28px;
+        line-height:35px;
+    }
+    p {
+        font-size:16px;
+        line-height:20px;
+    }
+    .uk-text-small {
+        font-size:12px;
+        line-height:14px;
+    }
+    .site-title {
+            .uk-vertical-align-middle {
+                transform: rotateX(90);
+                -ms-transform: rotate(-90deg);
+                -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+                h1 {
+                     font-size:2.5em;   
+                }
+                h2 {
+                     font-size:1.3em;   
+                }
+            }
+        }
+    .menu-contact {
+           transform: rotateX(90);
+            -ms-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg); 
+            right: calc(~"5px + 0%");
+        }
+    /* Homepage */
+    .home {
+        
+        
+        // Grid
+        #content-container {
+             .uk-container {
+                  padding:0;
+                 .homepage-grid .grid-item-wrapper {
+                     padding-top:0px;
+                     padding-bottom:20px;
+                     .grid-item {
+                         &.small, &.medium, &.large, &.full {
+                              width:100%;   
+                         }
+                     } 
+                 }
+             }
+        }
+    }
+    // Story
+    .stories {
+        article{
+            .hero_title {
+                  h1 {
+                      font-size:50px;
+                      line-height:75px;
+                  }
+             }
+            .story_hero {
+                 height:60vh;  
+            }
+            .hero_intro {
+                 .uk-container {
+                      padding: 50px;  
+                     .details {
+                        border-left:none;
+                        padding-top:25px;
+                     }
+                 }
+            }
+            .story_block {
+                margin-top:40px;
+                padding-bottom:30px;
+                .uk-container {
+                     padding:0px 50px;  
+                    .uk-width-small-1-1 {
+                         padding-bottom:20px;   
+                    }
+                }
+               
+                &.story_full {
+                    padding-bottom:0px;
+                    .uk-cover-background  {
+                        height:40vh;
+                    }
+                }
+            }
+        }
+         
+    }
+    // About
+    .about, .contact {
+         .uk-container {
+              padding:0 50px;   
+         }
+    }
 	
 }
 @media (max-width: @breakpoint-small) {
@@ -20,7 +121,54 @@
 
 /* Only tablets and desktops */
 
-@media (min-width: @breakpoint-medium) {
+@media (min-width: @breakpoint-medium) and (max-width: @breakpoint-medium-max) {
     /* GLOBAL */
-    
+    // Story
+    .stories {
+        article{
+            .hero_title {
+                  h1 {
+                      font-size:70px;
+                      line-height:85px;
+                  }
+             }
+            .story_hero {
+                 height:60vh;  
+            }
+            .hero_intro {
+                 .uk-container {
+                      padding: 50px 50px 0px;  
+                 }
+            }
+            .story_block {
+                margin-top:40px;
+                padding-bottom:30px;
+                .uk-container {
+                     padding:0px 50px;  
+                    .uk-width-small-1-1 {
+                         padding-bottom:20px;   
+                    }
+                }
+               
+                &.story_full {
+                    padding-bottom:0px;
+                    .uk-cover-background  {
+                        height:40vh;
+                    }
+                }
+            }
+        }
+    }
+    // About
+    .about, .contact {
+         .uk-container {
+              padding:0 50px;   
+         }
+    }
+    .about {
+         h2 {
+              font-size: 20px;
+             line-height:28px;
+         }
+    }
 }
